@@ -4,16 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Entities;
 using API.Extensions;
+using Microsoft.AspNetCore.Identity;
 
 namespace API.Entities
 {
-    public class AppUser
+    public class AppUser: IdentityUser<int>
     {
-        public int Id { get; set; }
-        public string UserName { get; set; }
-        public byte[] PasswordHash { get; set; }
-        public byte[] PasswordSalt { get; set; }
-
+   
         public DateTime DateOfBirth {get; set;}
         public string KnownAs { get; set; }
 
@@ -32,6 +29,8 @@ namespace API.Entities
 
         public ICollection<Message> MessageSent { get; set; }
         public ICollection<Message> MessageReceived { get; set; }
+
+         public ICollection<AppUserRole> UserRoles {get; set;}
 
 
       
