@@ -67,7 +67,7 @@ namespace API.Data
              .HasOne(u=>u.Sender)
              .WithMany(m=>m.MessageSent)
              .OnDelete(DeleteBehavior.Restrict);
-
+              AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
              builder.ApplyUtcDateTimeConverter();
 
           }
